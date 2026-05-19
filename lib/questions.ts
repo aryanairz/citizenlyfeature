@@ -64,6 +64,10 @@ export const QUESTIONS: CivicsQuestion[] = [
         question: "Ano ang pinakamataas na batas ng bansa?",
         answers: ["ang Konstitusyon"],
       },
+      ru: {
+        question: "Какой высший закон страны?",
+        answers: ["Конституция"],
+      },
     },
   },
   {
@@ -109,6 +113,14 @@ export const QUESTIONS: CivicsQuestion[] = [
           "pinoprotektahan ang mga karapatang pangunahin ng mga Amerikano",
         ],
       },
+      ru: {
+        question: "Что делает Конституция?",
+        answers: [
+          "устанавливает правительство",
+          "определяет правительство",
+          "защищает основные права американцев",
+        ],
+      },
     },
   },
   {
@@ -139,6 +151,10 @@ export const QUESTIONS: CivicsQuestion[] = [
           "Ang ideya ng sariling pamamahala ay nasa unang tatlong salita ng Konstitusyon. Ano ang mga salitang ito?",
         answers: ["We the People (Kaming mga Mamamayan)"],
       },
+      ru: {
+        question: "Идея самоуправления отражена в первых трёх словах Конституции. Какие это слова?",
+        answers: ["We the People (Мы, народ)"],
+      },
     },
   },
   {
@@ -163,6 +179,13 @@ export const QUESTIONS: CivicsQuestion[] = [
       tl: {
         question: "Ano ang sistemang pang-ekonomiya sa Estados Unidos?",
         answers: ["ekonomiyang kapitalista", "ekonomiya ng merkado"],
+      },
+      ru: {
+        question: "Какая экономическая система в Соединённых Штатах?",
+        answers: [
+          "капиталистическая экономика",
+          "рыночная экономика",
+        ],
       },
     },
   },
@@ -212,6 +235,15 @@ export const QUESTIONS: CivicsQuestion[] = [
           "Ang mga pinuno ay dapat sumunod sa batas",
           "Ang pamahalaan ay dapat sumunod sa batas",
           "Walang sinuman ang higit sa batas",
+        ],
+      },
+      ru: {
+        question: "Что такое \"верховенство закона\"?",
+        answers: [
+          "Каждый должен соблюдать закон",
+          "Руководители должны соблюдать закон",
+          "Правительство должно соблюдать закон",
+          "Никто не выше закона",
         ],
       },
     },
@@ -274,6 +306,17 @@ export const QUESTIONS: CivicsQuestion[] = [
           "hudisyal",
         ],
       },
+      ru: {
+        question: "Назовите одну ветвь или часть правительства.",
+        answers: [
+          "Конгресс",
+          "законодательная",
+          "Президент",
+          "исполнительная",
+          "суды",
+          "судебная",
+        ],
+      },
     },
   },
   {
@@ -298,6 +341,10 @@ export const QUESTIONS: CivicsQuestion[] = [
       tl: {
         question: "Sino ang nangangasiwa sa sangay na ehekutibo?",
         answers: ["ang Pangulo"],
+      },
+      ru: {
+        question: "Кто возглавляет исполнительную ветвь власти?",
+        answers: ["Президент"],
       },
     },
   },
@@ -340,6 +387,14 @@ export const QUESTIONS: CivicsQuestion[] = [
           "lehislatura (ng U.S. o pambansa)",
         ],
       },
+      ru: {
+        question: "Кто принимает федеральные законы?",
+        answers: [
+          "Конгресс",
+          "Сенат и Палата представителей",
+          "законодательное собрание (США или национальное)",
+        ],
+      },
     },
   },
   {
@@ -364,6 +419,10 @@ export const QUESTIONS: CivicsQuestion[] = [
       tl: {
         question: "Ano ang dalawang bahagi ng Kongreso ng U.S.?",
         answers: ["ang Senado at Kapulungan (ng mga Kinatawan)"],
+      },
+      ru: {
+        question: "Каковы две части Конгресса США?",
+        answers: ["Сенат и Палата представителей"],
       },
     },
   },
@@ -390,6 +449,10 @@ export const QUESTIONS: CivicsQuestion[] = [
         question: "Ilan ang mga senador ng U.S.?",
         answers: ["isang daan (100)"],
       },
+      ru: {
+        question: "Сколько сенаторов в США?",
+        answers: ["сто (100)"],
+      },
     },
   },
   {
@@ -414,6 +477,10 @@ export const QUESTIONS: CivicsQuestion[] = [
       tl: {
         question: "Sa loob ng ilang taon natin hinahalal ang isang Senador ng U.S.?",
         answers: ["anim (6)"],
+      },
+      ru: {
+        question: "На сколько лет мы избираем сенатора США?",
+        answers: ["шесть (6)"],
       },
     },
   },
@@ -441,6 +508,10 @@ export const QUESTIONS: CivicsQuestion[] = [
         question:
           "Ilan ang mga miyembrong may karapatang bumoto sa Kapulungan ng mga Kinatawan?",
         answers: ["apat na raan tatlumpu't lima (435)"],
+      },
+      ru: {
+        question: "Сколько голосующих членов в Палате представителей?",
+        answers: ["четыреста тридцать пять (435)"],
       },
     },
   },
@@ -470,6 +541,10 @@ export const QUESTIONS: CivicsQuestion[] = [
           "Sa loob ng ilang taon natin hinahalal ang isang Kinatawan ng U.S.?",
         answers: ["dalawa (2)"],
       },
+      ru: {
+        question: "На сколько лет мы избираем члена Палаты представителей США?",
+        answers: ["два (2)"],
+      },
     },
   },
   {
@@ -495,6 +570,10 @@ export const QUESTIONS: CivicsQuestion[] = [
         question: "Sino ang Punong Kumander ng militar?",
         answers: ["ang Pangulo"],
       },
+      ru: {
+        question: "Кто является Главнокомандующим вооружёнными силами?",
+        answers: ["Президент"],
+      },
     },
   },
   {
@@ -519,6 +598,10 @@ export const QUESTIONS: CivicsQuestion[] = [
       tl: {
         question: "Ano ang kabisera ng Estados Unidos?",
         answers: ["Washington, D.C."],
+      },
+      ru: {
+        question: "Какая столица Соединённых Штатов?",
+        answers: ["Вашингтон, округ Колумбия"],
       },
     },
   },
@@ -570,6 +653,15 @@ export const QUESTIONS: CivicsQuestion[] = [
           "New Jersey",
         ],
       },
+      ru: {
+        question: "Где находится Статуя Свободы?",
+        answers: [
+          "Нью-Йорк (гавань)",
+          "остров Либерти",
+          "на реке Гудзон",
+          "Нью-Джерси",
+        ],
+      },
     },
   },
   {
@@ -608,6 +700,13 @@ export const QUESTIONS: CivicsQuestion[] = [
         answers: [
           "dahil mayroong 13 orihinal na kolonya",
           "dahil ang mga guhit ay kumakatawan sa orihinal na mga kolonya",
+        ],
+      },
+      ru: {
+        question: "Почему на флаге 13 полос?",
+        answers: [
+          "потому что было 13 первоначальных колоний",
+          "потому что полосы представляют первоначальные колонии",
         ],
       },
     },
@@ -655,6 +754,14 @@ export const QUESTIONS: CivicsQuestion[] = [
           "dahil may 50 estado",
         ],
       },
+      ru: {
+        question: "Почему на флаге 50 звёзд?",
+        answers: [
+          "потому что одна звезда на каждый штат",
+          "потому что каждая звезда представляет штат",
+          "потому что есть 50 штатов",
+        ],
+      },
     },
   },
   {
@@ -679,6 +786,10 @@ export const QUESTIONS: CivicsQuestion[] = [
       tl: {
         question: "Kailan natin ipinagdiriwang ang Araw ng Kalayaan?",
         answers: ["ika-4 ng Hulyo"],
+      },
+      ru: {
+        question: "Когда мы отмечаем День независимости?",
+        answers: ["4 июля"],
       },
     },
   },
@@ -733,6 +844,16 @@ export const QUESTIONS: CivicsQuestion[] = [
           "American Samoa",
           "Northern Mariana Islands",
           "Guam",
+        ],
+      },
+      ru: {
+        question: "Назовите одну территорию США.",
+        answers: [
+          "Пуэрто-Рико",
+          "Виргинские острова США",
+          "Американское Самоа",
+          "Северные Марианские острова",
+          "Гуам",
         ],
       },
     },
