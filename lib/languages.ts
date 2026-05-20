@@ -1,4 +1,4 @@
-export type LangCode = "en" | "es" | "ko" | "vi" | "tl" | "ru";
+export type LangCode = "en" | "es" | "ko" | "vi" | "tl" | "ru" | "ml";
 
 export interface LanguageConfig {
   code: LangCode;
@@ -52,6 +52,13 @@ export const LANGUAGES: LanguageConfig[] = [
     nativeName: "Русский",
     deepgramCode: "ru",
     bcp47Code: "ru-RU",
+  },
+  {
+    code: "ml",
+    englishName: "Malayalam",
+    nativeName: "മലയാളം",
+    deepgramCode: "ml",
+    bcp47Code: "ml-IN",
   },
 ];
 
