@@ -6,15 +6,16 @@ isolation from the main Citizenly app. It will be integrated into the main app
 
 ## What it does
 
-1. User selects their language (English, Spanish, Korean, Vietnamese, Tagalog)
-   and starts a session.
+1. User selects their language (English, Spanish, Korean, Vietnamese, Tagalog,
+   Russian) and starts a session.
 2. The app picks 10 random questions from the USCIS civics bank (or the 65/20
    short list).
 3. Each question is spoken aloud in the user's language via Google Cloud TTS.
 4. The user records their answer with the browser's MediaRecorder API.
 5. Audio goes to Deepgram for speech-to-text (in the user's language).
-6. The transcript + accepted answers go to Claude (`claude-sonnet-4-20250514`)
-   for fuzzy evaluation — correct / partial / incorrect.
+6. The transcript + accepted answers go to Llama 3.3 70B via Groq
+   (`llama-3.3-70b-versatile`) for fuzzy evaluation — correct / partial /
+   incorrect.
 7. The interview stops at 6 correct, or after 10 questions. Results page shows
    pass/fail and a per-question breakdown.
 
@@ -22,7 +23,7 @@ isolation from the main Citizenly app. It will be integrated into the main app
 
 1. Copy `.env.local.example` to `.env.local` and fill in:
    - `DEEPGRAM_API_KEY`
-   - `ANTHROPIC_API_KEY`
+   - `GROQ_API_KEY`
    - `GOOGLE_TTS_API_KEY` (Google Cloud TTS API key restricted to that API)
 2. Install dependencies (already done if you scaffolded with the included
    instructions):
@@ -47,14 +48,12 @@ app/
 ├── interview/page.tsx          # Main interview UI
 ├── results/page.tsx            # Pass/fail breakdown
 └── api/
-    ├── tts/route.ts            # Google TTS → MP3 audio
-    ├── transcribe/route.ts     # Deepgram audio → transcript
-    └── evaluate/route.ts       # Claude transcript → correct/partial/incorrect
-
+├── tts/route.ts            # Google TTS → MP3 audio
+├── transcribe/route.ts     # Deepgram audio → transcript
+└── evaluate/route.ts       # Llama (Groq) transcript → correct/partial/incorrect
 lib/
-├── languages.ts                # 5-language config (TTS + STT codes)
-└── questions.ts                # 20 USCIS questions × 5 languages (starter)
-
+├── languages.ts                # 6-language config (TTS + STT codes)
+└── questions.ts                # 20 USCIS questions × 6 languages (starter)
 components/
 ├── AudioPlayer.tsx             # Plays TTS audio with replay button
 ├── MicRecorder.tsx             # MediaRecorder + visual recording indicator
