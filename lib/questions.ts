@@ -68,6 +68,10 @@ export const QUESTIONS: CivicsQuestion[] = [
         question: "Какой высший закон страны?",
         answers: ["Конституция"],
       },
+      hmn: {
+        question: "Dab tsi yog tsab cai siab tshaj ntawm lub teb chaws?",
+        answers: ["Tsab Cai Lij Choj"],
+      },
     },
   },
   {
@@ -121,6 +125,14 @@ export const QUESTIONS: CivicsQuestion[] = [
           "защищает основные права американцев",
         ],
       },
+      hmn: {
+        question: "Tsab Cai Lij Choj ua dab tsi?",
+        answers: [
+          "tsim cov nom tswv",
+          "txhais cov nom tswv",
+          "tiv thaiv cov cai yooj yim ntawm cov neeg Mes Kas",
+        ],
+      },
     },
   },
   {
@@ -155,6 +167,10 @@ export const QUESTIONS: CivicsQuestion[] = [
         question: "Идея самоуправления отражена в первых трёх словах Конституции. Какие это слова?",
         answers: ["We the People (Мы, народ)"],
       },
+      hmn: {
+        question: "Lub tswv yim ntawm kev tswj tus kheej nyob hauv peb lo lus thawj ntawm Tsab Cai Lij Choj. Cov lus no yog dab tsi?",
+        answers: ["We the People (Peb Cov Pej Xeem)"],
+      },
     },
   },
   {
@@ -185,6 +201,13 @@ export const QUESTIONS: CivicsQuestion[] = [
         answers: [
           "капиталистическая экономика",
           "рыночная экономика",
+        ],
+      },
+      hmn: {
+        question: "Lub teb chaws Mes Kas siv hom kev lag luam dab tsi?",
+        answers: [
+          "kev lag luam capitalist",
+          "kev lag luam khw",
         ],
       },
     },
@@ -244,6 +267,15 @@ export const QUESTIONS: CivicsQuestion[] = [
           "Руководители должны соблюдать закон",
           "Правительство должно соблюдать закон",
           "Никто не выше закона",
+        ],
+      },
+      hmn: {
+        question: "Dab tsi yog \"kev tswj raws txoj cai\"?",
+        answers: [
+          "Txhua tus yuav tsum ua raws li txoj cai",
+          "Cov thawj coj yuav tsum mloog txoj cai",
+          "Cov nom tswv yuav tsum mloog txoj cai",
+          "Tsis muaj leej twg dhau cai",
         ],
       },
     },
@@ -317,6 +349,17 @@ export const QUESTIONS: CivicsQuestion[] = [
           "судебная",
         ],
       },
+      hmn: {
+        question: "Hais lub npe ib ceg lossis ib feem ntawm cov nom tswv.",
+        answers: [
+          "Congress",
+          "kev tsim cai (legislative)",
+          "Thawj Tswj Hwm Tebchaws (President)",
+          "kev tswj (executive)",
+          "cov tsev hais plaub",
+          "kev txiav txim (judicial)",
+        ],
+      },
     },
   },
   {
@@ -345,6 +388,10 @@ export const QUESTIONS: CivicsQuestion[] = [
       ru: {
         question: "Кто возглавляет исполнительную ветвь власти?",
         answers: ["Президент"],
+      },
+      hmn: {
+        question: "Leej twg saib xyuas ceg kev tswj (executive branch)?",
+        answers: ["Thawj Tswj Hwm Tebchaws (President)"],
       },
     },
   },
@@ -395,6 +442,14 @@ export const QUESTIONS: CivicsQuestion[] = [
           "законодательное собрание (США или национальное)",
         ],
       },
+      hmn: {
+        question: "Leej twg tsim cov cai pej xeem?",
+        answers: [
+          "Congress",
+          "Senate thiab House (of Representatives)",
+          "pawg tsim cai (Mes Kas lossis teb chaws)",
+        ],
+      },
     },
   },
   {
@@ -423,6 +478,10 @@ export const QUESTIONS: CivicsQuestion[] = [
       ru: {
         question: "Каковы две части Конгресса США?",
         answers: ["Сенат и Палата представителей"],
+      },
+      hmn: {
+        question: "Ob feem ntawm U.S. Congress yog dab tsi?",
+        answers: ["Senate thiab House (of Representatives)"],
       },
     },
   },
@@ -453,6 +512,10 @@ export const QUESTIONS: CivicsQuestion[] = [
         question: "Сколько сенаторов в США?",
         answers: ["сто (100)"],
       },
+      hmn: {
+        question: "Muaj pes tsawg tus Senator Mes Kas?",
+        answers: ["ib puas (100)"],
+      },
     },
   },
   {
@@ -481,6 +544,10 @@ export const QUESTIONS: CivicsQuestion[] = [
       ru: {
         question: "На сколько лет мы избираем сенатора США?",
         answers: ["шесть (6)"],
+      },
+      hmn: {
+        question: "Peb xaiv ib tus Senator Mes Kas rau pes tsawg xyoo?",
+        answers: ["rau (6)"],
       },
     },
   },
@@ -512,6 +579,10 @@ export const QUESTIONS: CivicsQuestion[] = [
       ru: {
         question: "Сколько голосующих членов в Палате представителей?",
         answers: ["четыреста тридцать пять (435)"],
+      },
+      hmn: {
+        question: "Muaj pes tsawg tus tswv cuab muaj cai pov npav nyob hauv House of Representatives?",
+        answers: ["plaub puas peb caug tsib (435)"],
       },
     },
   },
@@ -545,6 +616,10 @@ export const QUESTIONS: CivicsQuestion[] = [
         question: "На сколько лет мы избираем члена Палаты представителей США?",
         answers: ["два (2)"],
       },
+      hmn: {
+        question: "Peb xaiv ib tus U.S. Representative rau pes tsawg xyoo?",
+        answers: ["ob (2)"],
+      },
     },
   },
   {
@@ -574,6 +649,10 @@ export const QUESTIONS: CivicsQuestion[] = [
         question: "Кто является Главнокомандующим вооружёнными силами?",
         answers: ["Президент"],
       },
+      hmn: {
+        question: "Leej twg yog Tus Thawj Coj Tub Rog (Commander in Chief)?",
+        answers: ["Thawj Tswj Hwm Tebchaws (President)"],
+      },
     },
   },
   {
@@ -602,6 +681,10 @@ export const QUESTIONS: CivicsQuestion[] = [
       ru: {
         question: "Какая столица Соединённых Штатов?",
         answers: ["Вашингтон, округ Колумбия"],
+      },
+      hmn: {
+        question: "Lub nroog loj tswj teb chaws Mes Kas yog dab tsi?",
+        answers: ["Washington, D.C."],
       },
     },
   },
@@ -662,6 +745,15 @@ export const QUESTIONS: CivicsQuestion[] = [
           "Нью-Джерси",
         ],
       },
+      hmn: {
+        question: "Tus Statue of Liberty nyob qhov twg?",
+        answers: [
+          "New York (Harbor)",
+          "Liberty Island",
+          "ntawm Hudson (River)",
+          "New Jersey",
+        ],
+      },
     },
   },
   {
@@ -707,6 +799,13 @@ export const QUESTIONS: CivicsQuestion[] = [
         answers: [
           "потому что было 13 первоначальных колоний",
           "потому что полосы представляют первоначальные колонии",
+        ],
+      },
+      hmn: {
+        question: "Vim li cas tus chij muaj 13 txoj kab?",
+        answers: [
+          "vim muaj 13 lub nroog thawj (original colonies)",
+          "vim cov kab sawv cev rau cov nroog thawj",
         ],
       },
     },
@@ -762,6 +861,14 @@ export const QUESTIONS: CivicsQuestion[] = [
           "потому что есть 50 штатов",
         ],
       },
+      hmn: {
+        question: "Vim li cas tus chij muaj 50 lub hnub qub?",
+        answers: [
+          "vim muaj ib lub hnub qub rau txhua lub xeev",
+          "vim txhua lub hnub qub sawv cev rau ib lub xeev",
+          "vim muaj 50 lub xeev",
+        ],
+      },
     },
   },
   {
@@ -790,6 +897,10 @@ export const QUESTIONS: CivicsQuestion[] = [
       ru: {
         question: "Когда мы отмечаем День независимости?",
         answers: ["4 июля"],
+      },
+      hmn: {
+        question: "Peb hwm Hnub Independence Day rau hnub twg?",
+        answers: ["Lub Xya Hli Hnub 4"],
       },
     },
   },
@@ -854,6 +965,16 @@ export const QUESTIONS: CivicsQuestion[] = [
           "Американское Самоа",
           "Северные Марианские острова",
           "Гуам",
+        ],
+      },
+      hmn: {
+        question: "Hais lub npe ib qho U.S. territory.",
+        answers: [
+          "Puerto Rico",
+          "U.S. Virgin Islands",
+          "American Samoa",
+          "Northern Mariana Islands",
+          "Guam",
         ],
       },
     },
