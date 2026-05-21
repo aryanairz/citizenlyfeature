@@ -8,6 +8,12 @@ export interface LanguageConfig {
   deepgramCode: string;
   /** BCP-47 locale tag used by the browser SpeechSynthesis API to pick a voice. */
   bcp47Code: string;
+  /**
+   * Speech-to-text provider override. Defaults to Deepgram. Set to "sarvam"
+   * for Indian languages Deepgram can't transcribe (e.g. Malayalam); the
+   * transcribe route then sends bcp47Code as Sarvam's language_code.
+   */
+  sttProvider?: "deepgram" | "sarvam";
 }
 
 export const LANGUAGES: LanguageConfig[] = [
@@ -59,6 +65,7 @@ export const LANGUAGES: LanguageConfig[] = [
     nativeName: "മലയാളം",
     deepgramCode: "ml",
     bcp47Code: "ml-IN",
+    sttProvider: "sarvam",
   },
   {
     code: "hi",

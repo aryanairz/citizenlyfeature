@@ -13,7 +13,9 @@ isolation from the main Citizenly app. It will be integrated into the main app
 3. Each question is spoken aloud in the user's language via the browser's Web
    Speech API (`SpeechSynthesis`) — no server-side TTS or API key required.
 4. The user records their answer with the browser's MediaRecorder API.
-5. Audio goes to Deepgram for speech-to-text (in the user's language).
+5. Audio goes to speech-to-text in the user's language — Deepgram (nova-3)
+   for most languages, Sarvam (Saarika) for Malayalam, which Deepgram can't
+   transcribe.
 6. The transcript + accepted answers go to Llama 3.3 70B via Groq
    (`llama-3.3-70b-versatile`) for fuzzy evaluation — correct / partial /
    incorrect.
@@ -25,6 +27,7 @@ isolation from the main Citizenly app. It will be integrated into the main app
 1. Copy `.env.local.example` to `.env.local` and fill in:
    - `DEEPGRAM_API_KEY`
    - `GROQ_API_KEY`
+   - `SARVAM_API_KEY` (Malayalam speech-to-text)
 2. Install dependencies (already done if you scaffolded with the included
    instructions):
 
@@ -48,7 +51,7 @@ app/
 ├── interview/page.tsx          # Main interview UI
 ├── results/page.tsx            # Pass/fail breakdown
 └── api/
-    ├── transcribe/route.ts     # Deepgram audio → transcript
+    ├── transcribe/route.ts     # Deepgram / Sarvam audio → transcript
     └── evaluate/route.ts       # Llama (Groq) transcript → correct/partial/incorrect
 
 lib/
