@@ -1,4 +1,4 @@
-export type LangCode = "en" | "es" | "ko" | "vi" | "tl" | "ru" | "ml" | "hi";
+export type LangCode = "en" | "es" | "ko" | "vi" | "tl" | "ru" | "ml" | "hi" | "hmn";
 
 export interface LanguageConfig {
   code: LangCode;
@@ -66,6 +66,13 @@ export const LANGUAGES: LanguageConfig[] = [
     nativeName: "हिन्दी",
     deepgramCode: "hi",
     bcp47Code: "hi-IN",
+  },
+  {
+    code: "hmn",
+    englishName: "Hmong",
+    nativeName: "Hmoob",
+    deepgramCode: "hmn",
+    bcp47Code: "hmn",
   },
 ];
 

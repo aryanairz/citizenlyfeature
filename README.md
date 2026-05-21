@@ -7,7 +7,7 @@ isolation from the main Citizenly app. It will be integrated into the main app
 ## What it does
 
 1. User selects their language (English, Spanish, Korean, Vietnamese, Tagalog,
-   Russian, Malayalam, Hindi) and starts a session.
+   Russian, Malayalam, Hindi, Hmong) and starts a session.
 2. The app picks 10 random questions from the USCIS civics bank (or the 65/20
    short list).
 3. Each question is spoken aloud in the user's language via the browser's Web
@@ -52,8 +52,8 @@ app/
     └── evaluate/route.ts       # Llama (Groq) transcript → correct/partial/incorrect
 
 lib/
-├── languages.ts                # 8-language config (TTS + STT codes)
-└── questions.ts                # 20 USCIS questions × 8 languages (starter)
+├── languages.ts                # 9-language config (TTS + STT codes)
+└── questions.ts                # 20 USCIS questions × 9 languages (starter)
 
 components/
 ├── AudioPlayer.tsx             # Speaks the question via Web Speech API, with replay

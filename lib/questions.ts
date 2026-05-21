@@ -76,6 +76,10 @@ export const QUESTIONS: CivicsQuestion[] = [
         question: "देश का सर्वोच्च कानून क्या है?",
         answers: ["संविधान"],
       },
+      hmn: {
+        question: "Dab tsi yog tsab cai siab tshaj ntawm lub teb chaws?",
+        answers: ["Tsab Cai Lij Choj"],
+      },
     },
   },
   {
@@ -145,6 +149,14 @@ export const QUESTIONS: CivicsQuestion[] = [
           "अमेरिकियों के मौलिक अधिकारों की रक्षा करता है",
         ],
       },
+      hmn: {
+        question: "Tsab Cai Lij Choj ua dab tsi?",
+        answers: [
+          "tsim cov nom tswv",
+          "txhais cov nom tswv",
+          "tiv thaiv cov cai yooj yim ntawm cov neeg Mes Kas",
+        ],
+      },
     },
   },
   {
@@ -186,6 +198,10 @@ export const QUESTIONS: CivicsQuestion[] = [
       hi: {
         question: "स्वशासन का विचार संविधान के पहले तीन शब्दों में है। ये शब्द कौन से हैं?",
         answers: ["We the People (हम लोग)"],
+      },
+      hmn: {
+        question: "Lub tswv yim ntawm kev tswj tus kheej nyob hauv peb lo lus thawj ntawm Tsab Cai Lij Choj. Cov lus no yog dab tsi?",
+        answers: ["We the People (Peb Cov Pej Xeem)"],
       },
     },
   },
@@ -231,6 +247,13 @@ export const QUESTIONS: CivicsQuestion[] = [
         answers: [
           "पूंजीवादी अर्थव्यवस्था",
           "बाज़ार अर्थव्यवस्था",
+        ],
+      },
+      hmn: {
+        question: "Lub teb chaws Mes Kas siv hom kev lag luam dab tsi?",
+        answers: [
+          "kev lag luam capitalist",
+          "kev lag luam khw",
         ],
       },
     },
@@ -308,6 +331,15 @@ export const QUESTIONS: CivicsQuestion[] = [
           "नेताओं को कानून का पालन करना चाहिए",
           "सरकार को कानून का पालन करना चाहिए",
           "कोई भी कानून से ऊपर नहीं है",
+        ],
+      },
+      hmn: {
+        question: "Dab tsi yog \"kev tswj raws txoj cai\"?",
+        answers: [
+          "Txhua tus yuav tsum ua raws li txoj cai",
+          "Cov thawj coj yuav tsum mloog txoj cai",
+          "Cov nom tswv yuav tsum mloog txoj cai",
+          "Tsis muaj leej twg dhau cai",
         ],
       },
     },
@@ -403,6 +435,17 @@ export const QUESTIONS: CivicsQuestion[] = [
           "न्यायिक",
         ],
       },
+      hmn: {
+        question: "Hais lub npe ib ceg lossis ib feem ntawm cov nom tswv.",
+        answers: [
+          "Congress",
+          "kev tsim cai (legislative)",
+          "Thawj Tswj Hwm Tebchaws (President)",
+          "kev tswj (executive)",
+          "cov tsev hais plaub",
+          "kev txiav txim (judicial)",
+        ],
+      },
     },
   },
   {
@@ -439,6 +482,10 @@ export const QUESTIONS: CivicsQuestion[] = [
       hi: {
         question: "कार्यकारी शाखा का प्रभारी कौन है?",
         answers: ["राष्ट्रपति"],
+      },
+      hmn: {
+        question: "Leej twg saib xyuas ceg kev tswj (executive branch)?",
+        answers: ["Thawj Tswj Hwm Tebchaws (President)"],
       },
     },
   },
@@ -505,6 +552,14 @@ export const QUESTIONS: CivicsQuestion[] = [
           "(अमेरिकी या राष्ट्रीय) विधायिका",
         ],
       },
+      hmn: {
+        question: "Leej twg tsim cov cai pej xeem?",
+        answers: [
+          "Congress",
+          "Senate thiab House (of Representatives)",
+          "pawg tsim cai (Mes Kas lossis teb chaws)",
+        ],
+      },
     },
   },
   {
@@ -541,6 +596,10 @@ export const QUESTIONS: CivicsQuestion[] = [
       hi: {
         question: "अमेरिकी कांग्रेस के दो भाग कौन से हैं?",
         answers: ["सीनेट और प्रतिनिधि सभा"],
+      },
+      hmn: {
+        question: "Ob feem ntawm U.S. Congress yog dab tsi?",
+        answers: ["Senate thiab House (of Representatives)"],
       },
     },
   },
@@ -579,6 +638,10 @@ export const QUESTIONS: CivicsQuestion[] = [
         question: "अमेरिका में कितने सीनेटर हैं?",
         answers: ["एक सौ (100)"],
       },
+      hmn: {
+        question: "Muaj pes tsawg tus Senator Mes Kas?",
+        answers: ["ib puas (100)"],
+      },
     },
   },
   {
@@ -615,6 +678,10 @@ export const QUESTIONS: CivicsQuestion[] = [
       hi: {
         question: "हम एक अमेरिकी सीनेटर को कितने वर्षों के लिए चुनते हैं?",
         answers: ["छह (6)"],
+      },
+      hmn: {
+        question: "Peb xaiv ib tus Senator Mes Kas rau pes tsawg xyoo?",
+        answers: ["rau (6)"],
       },
     },
   },
@@ -654,6 +721,10 @@ export const QUESTIONS: CivicsQuestion[] = [
       hi: {
         question: "प्रतिनिधि सभा में कितने मतदान सदस्य हैं?",
         answers: ["चार सौ पैंतीस (435)"],
+      },
+      hmn: {
+        question: "Muaj pes tsawg tus tswv cuab muaj cai pov npav nyob hauv House of Representatives?",
+        answers: ["plaub puas peb caug tsib (435)"],
       },
     },
   },
@@ -695,6 +766,10 @@ export const QUESTIONS: CivicsQuestion[] = [
         question: "हम एक अमेरिकी प्रतिनिधि को कितने वर्षों के लिए चुनते हैं?",
         answers: ["दो (2)"],
       },
+      hmn: {
+        question: "Peb xaiv ib tus U.S. Representative rau pes tsawg xyoo?",
+        answers: ["ob (2)"],
+      },
     },
   },
   {
@@ -732,6 +807,10 @@ export const QUESTIONS: CivicsQuestion[] = [
         question: "सेना का प्रधान सेनापति कौन है?",
         answers: ["राष्ट्रपति"],
       },
+      hmn: {
+        question: "Leej twg yog Tus Thawj Coj Tub Rog (Commander in Chief)?",
+        answers: ["Thawj Tswj Hwm Tebchaws (President)"],
+      },
     },
   },
   {
@@ -768,6 +847,10 @@ export const QUESTIONS: CivicsQuestion[] = [
       hi: {
         question: "संयुक्त राज्य अमेरिका की राजधानी क्या है?",
         answers: ["वाशिंगटन, डी.सी."],
+      },
+      hmn: {
+        question: "Lub nroog loj tswj teb chaws Mes Kas yog dab tsi?",
+        answers: ["Washington, D.C."],
       },
     },
   },
@@ -846,6 +929,15 @@ export const QUESTIONS: CivicsQuestion[] = [
           "न्यू जर्सी",
         ],
       },
+      hmn: {
+        question: "Tus Statue of Liberty nyob qhov twg?",
+        answers: [
+          "New York (Harbor)",
+          "Liberty Island",
+          "ntawm Hudson (River)",
+          "New Jersey",
+        ],
+      },
     },
   },
   {
@@ -905,6 +997,13 @@ export const QUESTIONS: CivicsQuestion[] = [
         answers: [
           "क्योंकि 13 मूल उपनिवेश थे",
           "क्योंकि धारियाँ मूल उपनिवेशों का प्रतिनिधित्व करती हैं",
+        ],
+      },
+      hmn: {
+        question: "Vim li cas tus chij muaj 13 txoj kab?",
+        answers: [
+          "vim muaj 13 lub nroog thawj (original colonies)",
+          "vim cov kab sawv cev rau cov nroog thawj",
         ],
       },
     },
@@ -976,6 +1075,14 @@ export const QUESTIONS: CivicsQuestion[] = [
           "क्योंकि 50 राज्य हैं",
         ],
       },
+      hmn: {
+        question: "Vim li cas tus chij muaj 50 lub hnub qub?",
+        answers: [
+          "vim muaj ib lub hnub qub rau txhua lub xeev",
+          "vim txhua lub hnub qub sawv cev rau ib lub xeev",
+          "vim muaj 50 lub xeev",
+        ],
+      },
     },
   },
   {
@@ -1012,6 +1119,10 @@ export const QUESTIONS: CivicsQuestion[] = [
       hi: {
         question: "हम स्वतंत्रता दिवस कब मनाते हैं?",
         answers: ["4 जुलाई"],
+      },
+      hmn: {
+        question: "Peb hwm Hnub Independence Day rau hnub twg?",
+        answers: ["Lub Xya Hli Hnub 4"],
       },
     },
   },
@@ -1096,6 +1207,16 @@ export const QUESTIONS: CivicsQuestion[] = [
           "अमेरिकी समोआ",
           "उत्तरी मारियाना द्वीप समूह",
           "गुआम",
+        ],
+      },
+      hmn: {
+        question: "Hais lub npe ib qho U.S. territory.",
+        answers: [
+          "Puerto Rico",
+          "U.S. Virgin Islands",
+          "American Samoa",
+          "Northern Mariana Islands",
+          "Guam",
         ],
       },
     },
