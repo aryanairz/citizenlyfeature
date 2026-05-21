@@ -14,8 +14,8 @@ isolation from the main Citizenly app. It will be integrated into the main app
    Speech API (`SpeechSynthesis`) — no server-side TTS or API key required.
 4. The user records their answer with the browser's MediaRecorder API.
 5. Audio goes to speech-to-text in the user's language — Deepgram (nova-3)
-   for most languages, Sarvam (Saarika) for Malayalam, which Deepgram can't
-   transcribe.
+   for most languages, Sarvam (Saarika) for Malayalam, and Groq Whisper for
+   Hmong (Deepgram supports neither Malayalam nor Hmong).
 6. The transcript + accepted answers go to Llama 3.3 70B via Groq
    (`llama-3.3-70b-versatile`) for fuzzy evaluation — correct / partial /
    incorrect.

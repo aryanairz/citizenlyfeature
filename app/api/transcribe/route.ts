@@ -1,5 +1,6 @@
 import { NextRequest } from "next/server";
 import { DeepgramClient } from "@deepgram/sdk";
+import OpenAI from "openai";
 import { getLanguage, type LanguageConfig } from "@/lib/languages";
 
 export const runtime = "nodejs";
@@ -8,7 +9,7 @@ export const runtime = "nodejs";
 class ConfigError extends Error {}
 
 async function transcribeWithDeepgram(
-  buffer: Buffer,
+  file: Blob,
   language: LanguageConfig,
 ): Promise<string> {
   const apiKey = process.env.DEEPGRAM_API_KEY;
@@ -16,6 +17,7 @@ async function transcribeWithDeepgram(
     throw new ConfigError("DEEPGRAM_API_KEY is not configured");
   }
 
+  const buffer = Buffer.from(await file.arrayBuffer());
   const client = new DeepgramClient({ apiKey });
   const response = await client.listen.v1.media.transcribeFile(buffer, {
     model: "nova-3",
@@ -60,6 +62,33 @@ async function transcribeWithSarvam(
   return data.transcript ?? "";
 }
 
+async function transcribeWithGroqWhisper(file: Blob): Promise<string> {
+  const apiKey = process.env.GROQ_API_KEY;
+  if (!apiKey) {
+    throw new ConfigError("GROQ_API_KEY is not configured");
+  }
+
+  // Groq is OpenAI-compatible, so we point the OpenAI SDK at Groq's endpoint.
+  const groq = new OpenAI({
+    apiKey,
+    baseURL: "https://api.groq.com/openai/v1",
+  });
+
+  // The OpenAI SDK needs a File with a known filename, so wrap the blob.
+  const audioFile = new File([await file.arrayBuffer()], "answer.webm", {
+    type: file.type || "audio/webm",
+  });
+
+  // Whisper has no official 'hmn' code, but Whisper Large v3 saw Hmong in
+  // training; letting it auto-detect (no language param) works best here.
+  const response = await groq.audio.transcriptions.create({
+    file: audioFile,
+    model: "whisper-large-v3",
+  });
+
+  return response.text ?? "";
+}
+
 export async function POST(request: NextRequest) {
   let formData: FormData;
   try {
@@ -78,14 +107,18 @@ export async function POST(request: NextRequest) {
   const language = getLanguage(lang) ?? getLanguage("en")!;
 
   try {
-    // Route per language: Sarvam for languages Deepgram can't handle (ml),
-    // Deepgram (nova-3) for everything else.
+    // Per-language STT provider routing (see `sttProvider` in lib/languages.ts).
+    // Deepgram supports neither Malayalam nor Hmong, so each routes elsewhere:
+    //   sarvam  -> Malayalam (Sarvam Saarika)
+    //   whisper -> Hmong (Groq Whisper large-v3, auto-detect)
+    //   deepgram (default) -> everything else (nova-3)
     let transcript: string;
     if (language.sttProvider === "sarvam") {
       transcript = await transcribeWithSarvam(file, language);
+    } else if (language.sttProvider === "whisper") {
+      transcript = await transcribeWithGroqWhisper(file);
     } else {
-      const buffer = Buffer.from(await file.arrayBuffer());
-      transcript = await transcribeWithDeepgram(buffer, language);
+      transcript = await transcribeWithDeepgram(file, language);
     }
 
     if (!transcript.trim()) {

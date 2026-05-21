@@ -9,11 +9,12 @@ export interface LanguageConfig {
   /** BCP-47 locale tag used by the browser SpeechSynthesis API to pick a voice. */
   bcp47Code: string;
   /**
-   * Speech-to-text provider override. Defaults to Deepgram. Set to "sarvam"
-   * for Indian languages Deepgram can't transcribe (e.g. Malayalam); the
-   * transcribe route then sends bcp47Code as Sarvam's language_code.
+   * Speech-to-text provider override. Defaults to Deepgram. Use "sarvam" for
+   * Malayalam (the transcribe route sends bcp47Code as Sarvam's language_code)
+   * and "whisper" for Hmong (Groq Whisper, auto-detect) — both are languages
+   * Deepgram can't transcribe.
    */
-  sttProvider?: "deepgram" | "sarvam";
+  sttProvider?: "deepgram" | "sarvam" | "whisper";
 }
 
 export const LANGUAGES: LanguageConfig[] = [
@@ -80,6 +81,7 @@ export const LANGUAGES: LanguageConfig[] = [
     nativeName: "Hmoob",
     deepgramCode: "hmn",
     bcp47Code: "hmn",
+    sttProvider: "whisper",
   },
 ];
 
