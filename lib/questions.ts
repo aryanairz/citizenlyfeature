@@ -80,6 +80,10 @@ export const QUESTIONS: CivicsQuestion[] = [
         question: "Dab tsi yog tsab cai siab tshaj ntawm lub teb chaws?",
         answers: ["Tsab Cai Lij Choj"],
       },
+      gu: {
+        question: "દેશનો સર્વોચ્ચ કાયદો કયો છે?",
+        answers: ["બંધારણ"],
+      },
     },
   },
   {
@@ -157,6 +161,14 @@ export const QUESTIONS: CivicsQuestion[] = [
           "tiv thaiv cov cai yooj yim ntawm cov neeg Mes Kas",
         ],
       },
+      gu: {
+        question: "બંધારણ શું કરે છે?",
+        answers: [
+          "સરકારની સ્થાપના કરે છે",
+          "સરકારને વ્યાખ્યાયિત કરે છે",
+          "અમેરિકનોના મૂળભૂત અધિકારોનું રક્ષણ કરે છે",
+        ],
+      },
     },
   },
   {
@@ -202,6 +214,11 @@ export const QUESTIONS: CivicsQuestion[] = [
       hmn: {
         question: "Lub tswv yim ntawm kev tswj tus kheej nyob hauv peb lo lus thawj ntawm Tsab Cai Lij Choj. Cov lus no yog dab tsi?",
         answers: ["We the People (Peb Cov Pej Xeem)"],
+      },
+      gu: {
+        question:
+          "સ્વ-શાસનનો વિચાર બંધારણના પ્રથમ ત્રણ શબ્દોમાં છે. આ શબ્દો કયા છે?",
+        answers: ["We the People (અમે લોકો)"],
       },
     },
   },
@@ -255,6 +272,10 @@ export const QUESTIONS: CivicsQuestion[] = [
           "kev lag luam capitalist",
           "kev lag luam khw",
         ],
+      },
+      gu: {
+        question: "યુનાઇટેડ સ્ટેટ્સમાં આર્થિક પ્રણાલી કઈ છે?",
+        answers: ["મૂડીવાદી અર્થતંત્ર", "બજાર અર્થતંત્ર"],
       },
     },
   },
@@ -340,6 +361,15 @@ export const QUESTIONS: CivicsQuestion[] = [
           "Cov thawj coj yuav tsum mloog txoj cai",
           "Cov nom tswv yuav tsum mloog txoj cai",
           "Tsis muaj leej twg dhau cai",
+        ],
+      },
+      gu: {
+        question: "\"કાયદાનું શાસન\" એટલે શું?",
+        answers: [
+          "દરેકે કાયદાનું પાલન કરવું જોઈએ",
+          "નેતાઓએ કાયદાનું પાલન કરવું જોઈએ",
+          "સરકારે કાયદાનું પાલન કરવું જોઈએ",
+          "કોઈ પણ કાયદાથી ઉપર નથી",
         ],
       },
     },
@@ -446,6 +476,17 @@ export const QUESTIONS: CivicsQuestion[] = [
           "kev txiav txim (judicial)",
         ],
       },
+      gu: {
+        question: "સરકારની એક શાખા અથવા ભાગનું નામ આપો.",
+        answers: [
+          "કોંગ્રેસ",
+          "વિધાનસભા (legislative)",
+          "પ્રમુખ (President)",
+          "કાર્યકારી (executive)",
+          "અદાલતો",
+          "ન્યાયિક (judicial)",
+        ],
+      },
     },
   },
   {
@@ -486,6 +527,10 @@ export const QUESTIONS: CivicsQuestion[] = [
       hmn: {
         question: "Leej twg saib xyuas ceg kev tswj (executive branch)?",
         answers: ["Thawj Tswj Hwm Tebchaws (President)"],
+      },
+      gu: {
+        question: "કાર્યકારી શાખાનો હવાલો કોણ સંભાળે છે?",
+        answers: ["પ્રમુખ (President)"],
       },
     },
   },
@@ -560,6 +605,14 @@ export const QUESTIONS: CivicsQuestion[] = [
           "pawg tsim cai (Mes Kas lossis teb chaws)",
         ],
       },
+      gu: {
+        question: "ફેડરલ કાયદા કોણ બનાવે છે?",
+        answers: [
+          "કોંગ્રેસ",
+          "સેનેટ અને હાઉસ (ઓફ રિપ્રેઝન્ટેટિવ્સ)",
+          "(યુ.એસ. અથવા રાષ્ટ્રીય) વિધાનમંડળ",
+        ],
+      },
     },
   },
   {
@@ -600,6 +653,10 @@ export const QUESTIONS: CivicsQuestion[] = [
       hmn: {
         question: "Ob feem ntawm U.S. Congress yog dab tsi?",
         answers: ["Senate thiab House (of Representatives)"],
+      },
+      gu: {
+        question: "યુ.એસ. કોંગ્રેસના બે ભાગ કયા છે?",
+        answers: ["સેનેટ અને હાઉસ (ઓફ રિપ્રેઝન્ટેટિવ્સ)"],
       },
     },
   },
@@ -642,6 +699,10 @@ export const QUESTIONS: CivicsQuestion[] = [
         question: "Muaj pes tsawg tus Senator Mes Kas?",
         answers: ["ib puas (100)"],
       },
+      gu: {
+        question: "યુ.એસ.માં કેટલા સેનેટરો છે?",
+        answers: ["એકસો (100)"],
+      },
     },
   },
   {
@@ -682,6 +743,10 @@ export const QUESTIONS: CivicsQuestion[] = [
       hmn: {
         question: "Peb xaiv ib tus Senator Mes Kas rau pes tsawg xyoo?",
         answers: ["rau (6)"],
+      },
+      gu: {
+        question: "આપણે યુ.એસ. સેનેટરને કેટલા વર્ષ માટે ચૂંટીએ છીએ?",
+        answers: ["છ (6)"],
       },
     },
   },
@@ -725,6 +790,11 @@ export const QUESTIONS: CivicsQuestion[] = [
       hmn: {
         question: "Muaj pes tsawg tus tswv cuab muaj cai pov npav nyob hauv House of Representatives?",
         answers: ["plaub puas peb caug tsib (435)"],
+      },
+      gu: {
+        question:
+          "હાઉસ ઓફ રિપ્રેઝન્ટેટિવ્સમાં મતદાન કરનારા કેટલા સભ્યો છે?",
+        answers: ["ચારસો પાંત્રીસ (435)"],
       },
     },
   },
@@ -770,6 +840,10 @@ export const QUESTIONS: CivicsQuestion[] = [
         question: "Peb xaiv ib tus U.S. Representative rau pes tsawg xyoo?",
         answers: ["ob (2)"],
       },
+      gu: {
+        question: "આપણે યુ.એસ. પ્રતિનિધિને કેટલા વર્ષ માટે ચૂંટીએ છીએ?",
+        answers: ["બે (2)"],
+      },
     },
   },
   {
@@ -811,6 +885,10 @@ export const QUESTIONS: CivicsQuestion[] = [
         question: "Leej twg yog Tus Thawj Coj Tub Rog (Commander in Chief)?",
         answers: ["Thawj Tswj Hwm Tebchaws (President)"],
       },
+      gu: {
+        question: "સૈન્યના સર્વોચ્ચ સેનાપતિ કોણ છે?",
+        answers: ["પ્રમુખ (President)"],
+      },
     },
   },
   {
@@ -851,6 +929,10 @@ export const QUESTIONS: CivicsQuestion[] = [
       hmn: {
         question: "Lub nroog loj tswj teb chaws Mes Kas yog dab tsi?",
         answers: ["Washington, D.C."],
+      },
+      gu: {
+        question: "યુનાઇટેડ સ્ટેટ્સની રાજધાની કઈ છે?",
+        answers: ["વોશિંગ્ટન, ડી.સી."],
       },
     },
   },
@@ -938,6 +1020,15 @@ export const QUESTIONS: CivicsQuestion[] = [
           "New Jersey",
         ],
       },
+      gu: {
+        question: "સ્ટેચ્યુ ઓફ લિબર્ટી ક્યાં છે?",
+        answers: [
+          "ન્યૂ યોર્ક (બંદર)",
+          "લિબર્ટી આઇલેન્ડ",
+          "હડસન (નદી) પર",
+          "ન્યૂ જર્સી",
+        ],
+      },
     },
   },
   {
@@ -1004,6 +1095,13 @@ export const QUESTIONS: CivicsQuestion[] = [
         answers: [
           "vim muaj 13 lub nroog thawj (original colonies)",
           "vim cov kab sawv cev rau cov nroog thawj",
+        ],
+      },
+      gu: {
+        question: "ધ્વજમાં 13 પટ્ટા કેમ છે?",
+        answers: [
+          "કારણ કે 13 મૂળ વસાહતો હતી",
+          "કારણ કે પટ્ટા મૂળ વસાહતોનું પ્રતિનિધિત્વ કરે છે",
         ],
       },
     },
@@ -1083,6 +1181,14 @@ export const QUESTIONS: CivicsQuestion[] = [
           "vim muaj 50 lub xeev",
         ],
       },
+      gu: {
+        question: "ધ્વજમાં 50 તારા કેમ છે?",
+        answers: [
+          "કારણ કે દરેક રાજ્ય માટે એક તારો છે",
+          "કારણ કે દરેક તારો એક રાજ્યનું પ્રતિનિધિત્વ કરે છે",
+          "કારણ કે 50 રાજ્યો છે",
+        ],
+      },
     },
   },
   {
@@ -1123,6 +1229,10 @@ export const QUESTIONS: CivicsQuestion[] = [
       hmn: {
         question: "Peb hwm Hnub Independence Day rau hnub twg?",
         answers: ["Lub Xya Hli Hnub 4"],
+      },
+      gu: {
+        question: "આપણે સ્વતંત્રતા દિવસ ક્યારે ઉજવીએ છીએ?",
+        answers: ["4 જુલાઈ"],
       },
     },
   },
@@ -1217,6 +1327,16 @@ export const QUESTIONS: CivicsQuestion[] = [
           "American Samoa",
           "Northern Mariana Islands",
           "Guam",
+        ],
+      },
+      gu: {
+        question: "યુ.એસ.ના એક પ્રદેશનું નામ આપો.",
+        answers: [
+          "પ્યુઅર્ટો રિકો",
+          "યુ.એસ. વર્જિન આઇલેન્ડ્સ",
+          "અમેરિકન સમોઆ",
+          "નોર્ધન મારિયાના આઇલેન્ડ્સ",
+          "ગુઆમ",
         ],
       },
     },

@@ -1,4 +1,14 @@
-export type LangCode = "en" | "es" | "ko" | "vi" | "tl" | "ru" | "ml" | "hi" | "hmn";
+export type LangCode =
+  | "en"
+  | "es"
+  | "ko"
+  | "vi"
+  | "tl"
+  | "ru"
+  | "ml"
+  | "hi"
+  | "gu"
+  | "hmn";
 
 export interface LanguageConfig {
   code: LangCode;
@@ -74,6 +84,15 @@ export const LANGUAGES: LanguageConfig[] = [
     nativeName: "हिन्दी",
     deepgramCode: "hi",
     bcp47Code: "hi-IN",
+  },
+  {
+    code: "gu",
+    englishName: "Gujarati",
+    nativeName: "ગુજરાતી",
+    // Deepgram nova-3 transcribes Gujarati natively (gu / gu-IN), so this uses
+    // the default Deepgram route — no Sarvam/Whisper override needed.
+    deepgramCode: "gu",
+    bcp47Code: "gu-IN",
   },
   {
     code: "hmn",
