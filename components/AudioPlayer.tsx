@@ -129,27 +129,50 @@ export default function AudioPlayer({
       return;
     }
 
-    // Voices may load asynchronously. If they aren't ready yet, wait once.
-    const voices = window.speechSynthesis.getVoices();
-    if (voices.length === 0) {
-      const handler = () => {
-        window.speechSynthesis.removeEventListener("voiceschanged", handler);
+    const synth = window.speechSynthesis;
+    let cancelled = false;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+
+    const cleanup = () => {
+      synth.removeEventListener("voiceschanged", onVoicesChanged);
+      if (timer) clearTimeout(timer);
+    };
+
+    // Chrome loads its Google voices from the network and only reveals them on
+    // a (sometimes delayed, sometimes repeated) `voiceschanged` event — so a
+    // matching voice can appear after the first getVoices() call. Re-check on
+    // each event until we find one.
+    function onVoicesChanged() {
+      if (cancelled) return;
+      if (pickVoice(synth.getVoices(), bcp47)) {
+        cleanup();
         speak();
-      };
-      window.speechSynthesis.addEventListener("voiceschanged", handler);
-      return () => {
-        window.speechSynthesis.removeEventListener("voiceschanged", handler);
-      };
+      }
     }
 
-    // Auto-play on mount — `speak()` updates external SpeechSynthesis state.
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    speak();
+    if (pickVoice(synth.getVoices(), bcp47)) {
+      // A voice is already available — play immediately. `speak()` updates
+      // external SpeechSynthesis state.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      speak();
+    } else {
+      synth.addEventListener("voiceschanged", onVoicesChanged);
+      // If no matching voice ever loads, fall back to text only rather than
+      // reading it in the wrong (English) voice or hanging.
+      timer = setTimeout(() => {
+        if (cancelled) return;
+        cleanup();
+        setNoVoice(true);
+        onPlaybackEndRef.current?.();
+      }, 3000);
+    }
 
     return () => {
-      if (window.speechSynthesis) window.speechSynthesis.cancel();
+      cancelled = true;
+      cleanup();
+      synth.cancel();
     };
-  }, [autoPlay, ttsEnabled, speak]);
+  }, [autoPlay, ttsEnabled, bcp47, speak]);
 
   // Text-only fallback: language opts out, browser unsupported, or this device
   // simply has no installed voice for the language.
