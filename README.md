@@ -10,11 +10,13 @@ isolation from the main Citizenly app. It will be integrated into the main app
    Russian, Malayalam, Hindi, Gujarati, Norwegian, Hmong) and starts a session.
 2. The app picks 10 random questions from the USCIS civics bank (or the 65/20
    short list).
-3. Each question is spoken aloud in the user's language via the browser's Web
-   Speech API (`SpeechSynthesis`) — no server-side TTS or API key required.
-   Hmong has no usable browser voice, so for it the question is shown as text
-   only (TTS is disabled via `tts: false` in `lib/languages.ts`); all other
-   languages, including Norwegian, are read aloud.
+3. Each question is read aloud in the user's language by a **server-side Google
+   Translate TTS proxy** (`/api/tts`) — no API key required. This is used for
+   every language because the browser Web Speech API is unreliable (most devices
+   have no voice for Malayalam/Gujarati/Norwegian and silently fall back to an
+   en-US voice). The browser voice is kept only as a last-resort fallback if the
+   proxy fails. Hmong is the exception: Google has no Hmong voice, so it's shown
+   as text only (`tts: false` in `lib/languages.ts`).
 4. The user records their answer with the browser's MediaRecorder API.
 5. Audio goes to speech-to-text in the user's language — Deepgram (nova-3)
    for most languages (including Gujarati), Sarvam (Saarika) for Malayalam, and
@@ -54,6 +56,7 @@ app/
 ├── interview/page.tsx          # Main interview UI
 ├── results/page.tsx            # Pass/fail breakdown
 └── api/
+    ├── tts/route.ts            # Google Translate TTS proxy → base64 MP3
     ├── transcribe/route.ts     # Deepgram / Sarvam audio → transcript
     └── evaluate/route.ts       # Llama (Groq) transcript → correct/partial/incorrect
 
@@ -62,7 +65,7 @@ lib/
 └── questions.ts                # 20 USCIS questions × 11 languages (starter)
 
 components/
-├── AudioPlayer.tsx             # Speaks the question via Web Speech API, with replay
+├── AudioPlayer.tsx             # Plays question audio from /api/tts (browser TTS fallback)
 ├── MicRecorder.tsx             # MediaRecorder + visual recording indicator
 └── ResultCard.tsx              # Green/yellow/red feedback
 ```
@@ -75,13 +78,17 @@ components/
   rest to `lib/questions.ts` following the same structure.
 - **No persistence**: Results are kept in `sessionStorage` only. Integration
   with the main Citizenly Supabase backend is a follow-up.
+- **TTS endpoint**: `/api/tts` proxies Google Translate's unofficial
+  `client=tw-ob` endpoint. It's free and works, but can rate-limit under load.
+  If this scales, swap the proxy's backend to Google Cloud TTS / Azure /
+  ElevenLabs behind the same `/api/tts` interface — the client won't change.
 
 ## Building it step by step
 
 This repo was built in this order (and is the recommended order for review):
 
 1. `lib/languages.ts` + `lib/questions.ts`
-2. `components/AudioPlayer.tsx` (Web Speech API TTS)
+2. `app/api/tts/route.ts` + `components/AudioPlayer.tsx` (Google Translate TTS)
 3. `components/MicRecorder.tsx` + `app/api/transcribe/route.ts`
 4. `app/api/evaluate/route.ts` + `components/ResultCard.tsx`
 5. `app/page.tsx`, `app/interview/page.tsx`, `app/results/page.tsx`
