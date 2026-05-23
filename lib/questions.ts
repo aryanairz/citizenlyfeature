@@ -84,6 +84,10 @@ export const QUESTIONS: CivicsQuestion[] = [
         question: "દેશનો સર્વોચ્ચ કાયદો કયો છે?",
         answers: ["બંધારણ"],
       },
+      no: {
+        question: "Hva er landets høyeste lov?",
+        answers: ["Grunnloven"],
+      },
     },
   },
   {
@@ -169,6 +173,14 @@ export const QUESTIONS: CivicsQuestion[] = [
           "અમેરિકનોના મૂળભૂત અધિકારોનું રક્ષણ કરે છે",
         ],
       },
+      no: {
+        question: "Hva gjør Grunnloven?",
+        answers: [
+          "oppretter regjeringen",
+          "definerer regjeringen",
+          "beskytter amerikanernes grunnleggende rettigheter",
+        ],
+      },
     },
   },
   {
@@ -219,6 +231,11 @@ export const QUESTIONS: CivicsQuestion[] = [
         question:
           "સ્વ-શાસનનો વિચાર બંધારણના પ્રથમ ત્રણ શબ્દોમાં છે. આ શબ્દો કયા છે?",
         answers: ["We the People (અમે લોકો)"],
+      },
+      no: {
+        question:
+          "Ideen om selvstyre står i de tre første ordene i Grunnloven. Hva er disse ordene?",
+        answers: ["We the People (Vi folket)"],
       },
     },
   },
@@ -276,6 +293,10 @@ export const QUESTIONS: CivicsQuestion[] = [
       gu: {
         question: "યુનાઇટેડ સ્ટેટ્સમાં આર્થિક પ્રણાલી કઈ છે?",
         answers: ["મૂડીવાદી અર્થતંત્ર", "બજાર અર્થતંત્ર"],
+      },
+      no: {
+        question: "Hva er det økonomiske systemet i USA?",
+        answers: ["kapitalistisk økonomi", "markedsøkonomi"],
       },
     },
   },
@@ -370,6 +391,15 @@ export const QUESTIONS: CivicsQuestion[] = [
           "નેતાઓએ કાયદાનું પાલન કરવું જોઈએ",
           "સરકારે કાયદાનું પાલન કરવું જોઈએ",
           "કોઈ પણ કાયદાથી ઉપર નથી",
+        ],
+      },
+      no: {
+        question: "Hva er \"rettsstatsprinsippet\"?",
+        answers: [
+          "Alle må følge loven",
+          "Ledere må følge loven",
+          "Regjeringen må følge loven",
+          "Ingen står over loven",
         ],
       },
     },
@@ -487,6 +517,17 @@ export const QUESTIONS: CivicsQuestion[] = [
           "ન્યાયિક (judicial)",
         ],
       },
+      no: {
+        question: "Nevn én gren eller del av regjeringen.",
+        answers: [
+          "Kongressen",
+          "lovgivende",
+          "Presidenten",
+          "utøvende",
+          "domstolene",
+          "dømmende",
+        ],
+      },
     },
   },
   {
@@ -531,6 +572,10 @@ export const QUESTIONS: CivicsQuestion[] = [
       gu: {
         question: "કાર્યકારી શાખાનો હવાલો કોણ સંભાળે છે?",
         answers: ["પ્રમુખ (President)"],
+      },
+      no: {
+        question: "Hvem leder den utøvende grenen?",
+        answers: ["Presidenten"],
       },
     },
   },
@@ -613,6 +658,14 @@ export const QUESTIONS: CivicsQuestion[] = [
           "(યુ.એસ. અથવા રાષ્ટ્રીય) વિધાનમંડળ",
         ],
       },
+      no: {
+        question: "Hvem lager føderale lover?",
+        answers: [
+          "Kongressen",
+          "Senatet og Representantenes hus",
+          "den (amerikanske eller nasjonale) lovgivende forsamling",
+        ],
+      },
     },
   },
   {
@@ -657,6 +710,10 @@ export const QUESTIONS: CivicsQuestion[] = [
       gu: {
         question: "યુ.એસ. કોંગ્રેસના બે ભાગ કયા છે?",
         answers: ["સેનેટ અને હાઉસ (ઓફ રિપ્રેઝન્ટેટિવ્સ)"],
+      },
+      no: {
+        question: "Hva er de to delene av den amerikanske kongressen?",
+        answers: ["Senatet og Representantenes hus"],
       },
     },
   },
@@ -703,6 +760,10 @@ export const QUESTIONS: CivicsQuestion[] = [
         question: "યુ.એસ.માં કેટલા સેનેટરો છે?",
         answers: ["એકસો (100)"],
       },
+      no: {
+        question: "Hvor mange amerikanske senatorer er det?",
+        answers: ["hundre (100)"],
+      },
     },
   },
   {
@@ -747,6 +808,10 @@ export const QUESTIONS: CivicsQuestion[] = [
       gu: {
         question: "આપણે યુ.એસ. સેનેટરને કેટલા વર્ષ માટે ચૂંટીએ છીએ?",
         answers: ["છ (6)"],
+      },
+      no: {
+        question: "For hvor mange år velger vi en amerikansk senator?",
+        answers: ["seks (6)"],
       },
     },
   },
@@ -796,6 +861,11 @@ export const QUESTIONS: CivicsQuestion[] = [
           "હાઉસ ઓફ રિપ્રેઝન્ટેટિવ્સમાં મતદાન કરનારા કેટલા સભ્યો છે?",
         answers: ["ચારસો પાંત્રીસ (435)"],
       },
+      no: {
+        question:
+          "Hvor mange stemmeberettigede medlemmer har Representantenes hus?",
+        answers: ["fire hundre og trettifem (435)"],
+      },
     },
   },
   {
@@ -844,6 +914,10 @@ export const QUESTIONS: CivicsQuestion[] = [
         question: "આપણે યુ.એસ. પ્રતિનિધિને કેટલા વર્ષ માટે ચૂંટીએ છીએ?",
         answers: ["બે (2)"],
       },
+      no: {
+        question: "For hvor mange år velger vi en amerikansk representant?",
+        answers: ["to (2)"],
+      },
     },
   },
   {
@@ -889,6 +963,10 @@ export const QUESTIONS: CivicsQuestion[] = [
         question: "સૈન્યના સર્વોચ્ચ સેનાપતિ કોણ છે?",
         answers: ["પ્રમુખ (President)"],
       },
+      no: {
+        question: "Hvem er militærets øverstkommanderende?",
+        answers: ["Presidenten"],
+      },
     },
   },
   {
@@ -933,6 +1011,10 @@ export const QUESTIONS: CivicsQuestion[] = [
       gu: {
         question: "યુનાઇટેડ સ્ટેટ્સની રાજધાની કઈ છે?",
         answers: ["વોશિંગ્ટન, ડી.સી."],
+      },
+      no: {
+        question: "Hva er hovedstaden i USA?",
+        answers: ["Washington, D.C."],
       },
     },
   },
@@ -1029,6 +1111,15 @@ export const QUESTIONS: CivicsQuestion[] = [
           "ન્યૂ જર્સી",
         ],
       },
+      no: {
+        question: "Hvor er Frihetsgudinnen?",
+        answers: [
+          "New York (havnen)",
+          "Liberty Island",
+          "ved Hudson(-elven)",
+          "New Jersey",
+        ],
+      },
     },
   },
   {
@@ -1102,6 +1193,13 @@ export const QUESTIONS: CivicsQuestion[] = [
         answers: [
           "કારણ કે 13 મૂળ વસાહતો હતી",
           "કારણ કે પટ્ટા મૂળ વસાહતોનું પ્રતિનિધિત્વ કરે છે",
+        ],
+      },
+      no: {
+        question: "Hvorfor har flagget 13 striper?",
+        answers: [
+          "fordi det var 13 opprinnelige kolonier",
+          "fordi stripene representerer de opprinnelige koloniene",
         ],
       },
     },
@@ -1189,6 +1287,14 @@ export const QUESTIONS: CivicsQuestion[] = [
           "કારણ કે 50 રાજ્યો છે",
         ],
       },
+      no: {
+        question: "Hvorfor har flagget 50 stjerner?",
+        answers: [
+          "fordi det er én stjerne for hver delstat",
+          "fordi hver stjerne representerer en delstat",
+          "fordi det er 50 delstater",
+        ],
+      },
     },
   },
   {
@@ -1233,6 +1339,10 @@ export const QUESTIONS: CivicsQuestion[] = [
       gu: {
         question: "આપણે સ્વતંત્રતા દિવસ ક્યારે ઉજવીએ છીએ?",
         answers: ["4 જુલાઈ"],
+      },
+      no: {
+        question: "Når feirer vi uavhengighetsdagen?",
+        answers: ["4. juli"],
       },
     },
   },
@@ -1337,6 +1447,16 @@ export const QUESTIONS: CivicsQuestion[] = [
           "અમેરિકન સમોઆ",
           "નોર્ધન મારિયાના આઇલેન્ડ્સ",
           "ગુઆમ",
+        ],
+      },
+      no: {
+        question: "Nevn ett amerikansk territorium.",
+        answers: [
+          "Puerto Rico",
+          "De amerikanske Jomfruøyene",
+          "Amerikansk Samoa",
+          "Nord-Marianene",
+          "Guam",
         ],
       },
     },

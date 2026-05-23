@@ -8,6 +8,7 @@ export type LangCode =
   | "ml"
   | "hi"
   | "gu"
+  | "no"
   | "hmn";
 
 export interface LanguageConfig {
@@ -25,6 +26,13 @@ export interface LanguageConfig {
    * Deepgram can't transcribe.
    */
   sttProvider?: "deepgram" | "sarvam" | "whisper";
+  /**
+   * Whether to read the question aloud with the browser's SpeechSynthesis.
+   * Defaults to true. Set false for languages with no usable browser voice
+   * (e.g. Hmong) — the question is shown as text only and the interview skips
+   * straight to recording instead of trying (and failing) to speak.
+   */
+  tts?: boolean;
 }
 
 export const LANGUAGES: LanguageConfig[] = [
@@ -95,12 +103,25 @@ export const LANGUAGES: LanguageConfig[] = [
     bcp47Code: "gu-IN",
   },
   {
+    code: "no",
+    englishName: "Norwegian",
+    nativeName: "Norsk",
+    // Deepgram nova-3 transcribes Norwegian natively (no), so this uses the
+    // default Deepgram route — no Sarvam/Whisper override needed. bcp47 uses
+    // the Bokmål voice tag for browser TTS.
+    deepgramCode: "no",
+    bcp47Code: "nb-NO",
+  },
+  {
     code: "hmn",
     englishName: "Hmong",
     nativeName: "Hmoob",
     deepgramCode: "hmn",
     bcp47Code: "hmn",
     sttProvider: "whisper",
+    // No reliable browser TTS voice exists for Hmong, so don't attempt it —
+    // the question is shown as text only. STT (Whisper) is unaffected.
+    tts: false,
   },
 ];
 

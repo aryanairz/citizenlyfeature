@@ -7,11 +7,14 @@ isolation from the main Citizenly app. It will be integrated into the main app
 ## What it does
 
 1. User selects their language (English, Spanish, Korean, Vietnamese, Tagalog,
-   Russian, Malayalam, Hindi, Gujarati, Hmong) and starts a session.
+   Russian, Malayalam, Hindi, Gujarati, Norwegian, Hmong) and starts a session.
 2. The app picks 10 random questions from the USCIS civics bank (or the 65/20
    short list).
 3. Each question is spoken aloud in the user's language via the browser's Web
    Speech API (`SpeechSynthesis`) — no server-side TTS or API key required.
+   Hmong has no usable browser voice, so for it the question is shown as text
+   only (TTS is disabled via `tts: false` in `lib/languages.ts`); all other
+   languages, including Norwegian, are read aloud.
 4. The user records their answer with the browser's MediaRecorder API.
 5. Audio goes to speech-to-text in the user's language — Deepgram (nova-3)
    for most languages (including Gujarati), Sarvam (Saarika) for Malayalam, and
@@ -55,8 +58,8 @@ app/
     └── evaluate/route.ts       # Llama (Groq) transcript → correct/partial/incorrect
 
 lib/
-├── languages.ts                # 10-language config (TTS + STT codes)
-└── questions.ts                # 20 USCIS questions × 10 languages (starter)
+├── languages.ts                # 11-language config (TTS + STT codes)
+└── questions.ts                # 20 USCIS questions × 11 languages (starter)
 
 components/
 ├── AudioPlayer.tsx             # Speaks the question via Web Speech API, with replay
