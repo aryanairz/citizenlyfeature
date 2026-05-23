@@ -10,6 +10,52 @@ interface AudioPlayerProps {
   onPlaybackEnd?: () => void;
 }
 
+// Norwegian is tagged inconsistently across platforms (no / nb / nn), so treat
+// those base tags as interchangeable when matching a voice.
+const NORWEGIAN_BASES = new Set(["no", "nb", "nn"]);
+
+function normalizeLang(code: string): string {
+  return code.toLowerCase().replace(/_/g, "-");
+}
+
+/**
+ * Find the best installed voice for a BCP-47 code.
+ *
+ * This matters because SpeechSynthesis treats `utterance.lang` as a hint: if no
+ * matching `utterance.voice` is set, most browsers fall back to the default
+ * (usually English) voice and read foreign text with an English accent. So we
+ * resolve a real voice here, or return null so the caller can show text only
+ * instead of speaking it badly.
+ */
+function pickVoice(
+  voices: SpeechSynthesisVoice[],
+  bcp47: string,
+): SpeechSynthesisVoice | null {
+  if (voices.length === 0) return null;
+  const target = normalizeLang(bcp47);
+  const targetBase = target.split("-")[0];
+
+  // Exact locale, e.g. "nb-no" === "nb-no".
+  const exact = voices.find((v) => normalizeLang(v.lang) === target);
+  if (exact) return exact;
+
+  // Same base language, e.g. target "nb-no" matches a plain "nb" voice.
+  const sameBase = voices.find(
+    (v) => normalizeLang(v.lang).split("-")[0] === targetBase,
+  );
+  if (sameBase) return sameBase;
+
+  // Norwegian no/nb/nn equivalence.
+  if (NORWEGIAN_BASES.has(targetBase)) {
+    const norwegian = voices.find((v) =>
+      NORWEGIAN_BASES.has(normalizeLang(v.lang).split("-")[0]),
+    );
+    if (norwegian) return norwegian;
+  }
+
+  return null;
+}
+
 export default function AudioPlayer({
   text,
   lang,
@@ -18,20 +64,19 @@ export default function AudioPlayer({
 }: AudioPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [noVoice, setNoVoice] = useState(false);
 
   const language = getLanguage(lang);
-  // TTS is unavailable when the browser has no SpeechSynthesis, OR when the
-  // language opts out (e.g. Hmong has no usable browser voice — see
-  // `tts: false` in lib/languages.ts).
+  const bcp47 = language?.bcp47Code ?? "en-US";
+
   const [browserSupportsTts] = useState(
     () => typeof window !== "undefined" && !!window.speechSynthesis,
   );
+  // Some languages opt out of TTS entirely (e.g. Hmong has no usable voice).
   const ttsDisabledForLang = language?.tts === false;
   const ttsEnabled = browserSupportsTts && !ttsDisabledForLang;
 
-  const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
   const onPlaybackEndRef = useRef(onPlaybackEnd);
-
   useEffect(() => {
     onPlaybackEndRef.current = onPlaybackEnd;
   }, [onPlaybackEnd]);
@@ -39,10 +84,22 @@ export default function AudioPlayer({
   const speak = useCallback(() => {
     if (!ttsEnabled) return;
     setError(null);
+
+    const voice = pickVoice(window.speechSynthesis.getVoices(), bcp47);
+    if (!voice) {
+      // No installed voice for this language — don't read it in the wrong
+      // (English) voice. Show text only and let the interview continue.
+      setNoVoice(true);
+      onPlaybackEndRef.current?.();
+      return;
+    }
+    setNoVoice(false);
     window.speechSynthesis.cancel();
 
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = language?.bcp47Code ?? "en-US";
+    // Assigning the voice (not just .lang) is what forces the correct accent.
+    utterance.voice = voice;
+    utterance.lang = voice.lang;
     utterance.rate = 0.95;
 
     utterance.onstart = () => setIsPlaying(true);
@@ -59,16 +116,14 @@ export default function AudioPlayer({
       }
     };
 
-    utteranceRef.current = utterance;
     window.speechSynthesis.speak(utterance);
-  }, [text, language, ttsEnabled]);
+  }, [text, bcp47, ttsEnabled]);
 
   useEffect(() => {
     if (!autoPlay) return;
 
-    // When TTS isn't available (unsupported browser, or disabled for this
-    // language like Hmong), don't block the flow — advance straight to
-    // recording so the mic isn't stuck disabled.
+    // No TTS for this language/browser — advance straight to recording so the
+    // mic is never stuck disabled.
     if (!ttsEnabled) {
       onPlaybackEndRef.current?.();
       return;
@@ -96,13 +151,22 @@ export default function AudioPlayer({
     };
   }, [autoPlay, ttsEnabled, speak]);
 
-  // No audio for this language/browser: show the question as text only.
-  if (!ttsEnabled) {
+  // Text-only fallback: language opts out, browser unsupported, or this device
+  // simply has no installed voice for the language.
+  if (!ttsEnabled || noVoice) {
+    const message = ttsDisabledForLang
+      ? "Audio narration isn't available for this language — please read the question above."
+      : !browserSupportsTts
+        ? "Your browser doesn't support audio playback — please read the question above."
+        : "No voice for this language is installed on your device, so the question is shown as text only.";
     return (
-      <div className="flex items-center gap-2 text-sm text-gray-500">
-        <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden>
-          <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3a4.5 4.5 0 00-2.5-4.03v8.05A4.5 4.5 0 0016.5 12z" />
-          <path d="M19 12a7 7 0 01-1.8 4.7l1.2 1.2A8.7 8.7 0 0020.5 12 8.7 8.7 0 0018.4 6.1l-1.2 1.2A7 7 0 0119 12z" />
+      <div className="flex items-start gap-2 text-sm text-gray-500">
+        <svg
+          viewBox="0 0 24 24"
+          className="mt-0.5 h-5 w-5 shrink-0 fill-current"
+          aria-hidden
+        >
+          <path d="M3 9v6h4l5 5V4L7 9H3z" />
           <line
             x1="3"
             y1="3"
@@ -112,11 +176,7 @@ export default function AudioPlayer({
             strokeWidth="2"
           />
         </svg>
-        <span>
-          {ttsDisabledForLang
-            ? "Audio narration isn't available for this language — please read the question above."
-            : "Your browser doesn't support audio playback — please read the question above."}
-        </span>
+        <span>{message}</span>
       </div>
     );
   }
